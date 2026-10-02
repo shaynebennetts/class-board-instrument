@@ -53,6 +53,7 @@
   designed for it. The firmware and the phone app that make it an instrument are being written now.</p>
   <div class="btns">
     <a class="btn primary" href="https://github.com/TIGP-Experimental-Methods/class-board-2026/tree/w1-shaynebennetts/docs/students/shaynebennetts/housing">Housing files</a>
+    <a class="btn" href="#files">OpenSCAD and print files</a>
     <a class="btn" href="https://github.com/TIGP-Experimental-Methods/class-board-2026">The class board</a>
     <a class="btn" href="https://github.com/shaynebennetts/class-board-instrument">This site's code</a>
   </div>
@@ -108,6 +109,33 @@
   </div>
   <p>Each name is taken from the boards' silkscreen and checked against the copper: every SMA centre pin, LED, TTL pin
   and terminal pole is traced to its net on the main board.</p>
+</section>
+
+<section id="files">
+  <h2>Files</h2>
+  <p>The whole housing is one parametric OpenSCAD file; every part and every export comes from it. GitHub shows the
+  STL files in a 3D viewer (<i>view</i>); <i>download</i> fetches the file itself.</p>
+  <div class="scroll"><table class="tbl">
+    <tr><th>File</th><th>What it is</th><th></th></tr>
+    <tr><td colspan="3"><b>OpenSCAD model</b> (OpenSCAD 2021.01)</td></tr>
+    <tr><td>CompleteHousing.scad</td><td>The model: every part, parameter and label; <code>part</code> chooses what is drawn</td><td><a href="https://github.com/TIGP-Experimental-Methods/class-board-2026/blob/w1-shaynebennetts/docs/students/shaynebennetts/housing/CompleteHousing.scad">view</a> · <a href="https://raw.githubusercontent.com/TIGP-Experimental-Methods/class-board-2026/w1-shaynebennetts/docs/students/shaynebennetts/housing/CompleteHousing.scad">download</a></td></tr>
+    <tr><td>PrintView.scad</td><td>All printed parts laid out as on the print plate</td><td><a href="https://github.com/TIGP-Experimental-Methods/class-board-2026/blob/w1-shaynebennetts/docs/students/shaynebennetts/housing/PrintView.scad">view</a> · <a href="https://raw.githubusercontent.com/TIGP-Experimental-Methods/class-board-2026/w1-shaynebennetts/docs/students/shaynebennetts/housing/PrintView.scad">download</a></td></tr>
+    <tr><td>CoverView.scad</td><td>The cover on its own</td><td><a href="https://github.com/TIGP-Experimental-Methods/class-board-2026/blob/w1-shaynebennetts/docs/students/shaynebennetts/housing/CoverView.scad">view</a> · <a href="https://raw.githubusercontent.com/TIGP-Experimental-Methods/class-board-2026/w1-shaynebennetts/docs/students/shaynebennetts/housing/CoverView.scad">download</a></td></tr>
+    <tr><td>OledView.scad</td><td>The OLED hood on its own</td><td><a href="https://github.com/TIGP-Experimental-Methods/class-board-2026/blob/w1-shaynebennetts/docs/students/shaynebennetts/housing/OledView.scad">view</a> · <a href="https://raw.githubusercontent.com/TIGP-Experimental-Methods/class-board-2026/w1-shaynebennetts/docs/students/shaynebennetts/housing/OledView.scad">download</a></td></tr>
+    <tr><td>export/export.scad</td><td>Regenerates every production file from the command line</td><td><a href="https://github.com/TIGP-Experimental-Methods/class-board-2026/blob/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/export.scad">view</a> · <a href="https://raw.githubusercontent.com/TIGP-Experimental-Methods/class-board-2026/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/export.scad">download</a></td></tr>
+    <tr><td>HANDOVER.md</td><td>Design notes: the coordinate frame, where every number came from, open items</td><td><a href="https://github.com/TIGP-Experimental-Methods/class-board-2026/blob/w1-shaynebennetts/docs/students/shaynebennetts/housing/HANDOVER.md">view</a></td></tr>
+    <tr><td colspan="3"><b>Production files</b> (already in printing orientation)</td></tr>
+    <tr><td>base.stl</td><td>Base, printed bottom edge down, one colour</td><td><a href="https://github.com/TIGP-Experimental-Methods/class-board-2026/blob/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/base.stl">view</a> · <a href="https://raw.githubusercontent.com/TIGP-Experimental-Methods/class-board-2026/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/base.stl">download</a></td></tr>
+    <tr><td>cover.stl + cover_labels.stl</td><td>Cover, printed face down; load both as one object, labels in white</td><td><a href="https://github.com/TIGP-Experimental-Methods/class-board-2026/blob/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/cover.stl">view</a> · <a href="https://raw.githubusercontent.com/TIGP-Experimental-Methods/class-board-2026/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/cover.stl">download</a> · <a href="https://raw.githubusercontent.com/TIGP-Experimental-Methods/class-board-2026/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/cover_labels.stl">labels</a></td></tr>
+    <tr><td>sma_plate.stl + sma_labels.stl</td><td>SMA plate, printed plate down; load both as one object, labels in white</td><td><a href="https://github.com/TIGP-Experimental-Methods/class-board-2026/blob/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/sma_plate.stl">view</a> · <a href="https://raw.githubusercontent.com/TIGP-Experimental-Methods/class-board-2026/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/sma_plate.stl">download</a> · <a href="https://raw.githubusercontent.com/TIGP-Experimental-Methods/class-board-2026/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/sma_labels.stl">labels</a></td></tr>
+    <tr><td>oled_housing.stl</td><td>OLED hood, printed face down, one colour</td><td><a href="https://github.com/TIGP-Experimental-Methods/class-board-2026/blob/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/oled_housing.stl">view</a> · <a href="https://raw.githubusercontent.com/TIGP-Experimental-Methods/class-board-2026/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/oled_housing.stl">download</a></td></tr>
+    <tr><td>bottom_lid_3mm.dxf</td><td>Bottom lid for the laser cutter, 3 mm acrylic</td><td><a href="https://github.com/TIGP-Experimental-Methods/class-board-2026/blob/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/bottom_lid_3mm.dxf">view</a> · <a href="https://raw.githubusercontent.com/TIGP-Experimental-Methods/class-board-2026/w1-shaynebennetts/docs/students/shaynebennetts/housing/export/bottom_lid_3mm.dxf">download</a></td></tr>
+  </table></div>
+  <p class="note">To open the model with the boards in place: clone
+  <a href="https://github.com/TIGP-Experimental-Methods/class-board-2026">class-board-2026</a>, switch to the branch
+  <code>w1-shaynebennetts</code>, and open <code>docs/students/shaynebennetts/housing/CompleteHousing.scad</code> in
+  OpenSCAD. The file reads the board meshes from <code>hardware/release/</code> and the dev-board mesh from
+  <code>models/</code> by relative path, so it must stay in that folder.</p>
 </section>
 
 <section>
