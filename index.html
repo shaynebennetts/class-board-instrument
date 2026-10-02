@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Class board instrument</title>
+<meta name="description" content="The TIGP 2026 class board, a small instrument and NMR console built on an ESP32-S3, and the housing designed for it. Project 3, Basic Skills for Experimentalists.">
+<style>
+  :root{
+    --ink:#14201B; --paper:#EEF3EF; --dim:#A9B9AF; --pcb:#2F7D4F;
+    --gold:#E2B33C; --line:#ffffff1a; --card:#ffffff0b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ink);color:var(--paper);
+       font:16px/1.65 ui-sans-serif,system-ui,"Segoe UI",Inter,Helvetica,Arial,sans-serif}
+  .wrap{max-width:960px;margin:0 auto;padding-inline:20px}
+  a{color:var(--gold)}
+  h1,h2,h3{line-height:1.2;margin:0 0 .5em}
+  h1{font-size:clamp(2.1rem,6vw,3.3rem);letter-spacing:-.02em}
+  h2{font-size:clamp(1.35rem,3.2vw,1.9rem)}
+  section{padding-block:clamp(2.2rem,6vw,3.6rem);border-top:1px solid var(--line)}
+  .hero{padding-block:clamp(2.4rem,7vw,4.2rem)}
+  .tag{color:var(--dim);font-size:.9rem;letter-spacing:.05em;text-transform:uppercase;margin:0 0 .4em}
+  .lede{font-size:clamp(1.05rem,2.2vw,1.25rem);max-width:64ch;margin:1em 0 0;color:#DCE7E0}
+  .btns{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.5rem}
+  .btn{display:inline-block;padding:.65rem 1.1rem;border-radius:10px;text-decoration:none;font-weight:650;
+       border:2px solid #ffffff26;color:var(--paper);background:var(--card)}
+  .btn.primary{background:var(--pcb);border-color:#00000030;color:#fff}
+  .btn:hover{border-color:var(--gold)}
+  figure{margin:0 0 1.4rem}
+  figure img{width:100%;height:auto;display:block;border-radius:12px;border:2px solid var(--line);background:#FFFFE5}
+  figcaption{color:var(--dim);font-size:.9rem;margin-top:.55rem}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+  @media (max-width:720px){.two{grid-template-columns:1fr}}
+  ul{padding-left:1.2em} li{margin:.25em 0}
+  .tbl{width:100%;border-collapse:collapse;font-size:.95rem}
+  .tbl th,.tbl td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+  .tbl th{color:var(--dim);font-weight:600}
+  .scroll{overflow-x:auto}
+  .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem}
+  footer{padding-block:2rem;color:var(--dim);font-size:.9rem;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="tag">Project 3 · Basic Skills for Experimentalists · TIGP 2026</p>
+  <h1>Class board instrument</h1>
+  <p class="lede">The class board turns an ESP32-S3 development board into a small laboratory instrument: eight analog
+  inputs, two ±10 V outputs, eight TTL lines, a trigger, seven buffered module outputs, two isolated inputs, and a
+  low-field NMR console (about 2 mT, protons precessing at 89 kHz). This page introduces the board and the housing
+  designed for it. The firmware and the phone app that make it an instrument are being written now.</p>
+  <div class="btns">
+    <a class="btn primary" href="https://github.com/TIGP-Experimental-Methods/class-board-2026/tree/w1-shaynebennetts/docs/students/shaynebennetts/housing">Housing files</a>
+    <a class="btn" href="https://github.com/TIGP-Experimental-Methods/class-board-2026">The class board</a>
+    <a class="btn" href="https://github.com/shaynebennetts/class-board-instrument">This site's code</a>
+  </div>
+</header>
+
+<section>
+  <figure>
+    <img src="images/assembled.png" alt="The housing assembled around the two boards: a printed base, a cover with white labels, the SMA plate and the OLED hood">
+    <figcaption>The housing around the boards, rendered from the OpenSCAD model with the real board meshes.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>The board</h2>
+  <p>Two boards, each 180 × 100 mm and four layers, are stacked 11 mm apart on M3 stand-offs and joined by three 2 × 20
+  headers. The <b>front panel</b> is the face of the instrument: sixteen SMA connectors (analog in AI1–AI8, analog out
+  AO1–AO2, TRIG, AUX, the fast TTL outputs FAST1–2, and the NMR transmit and receive lines TX and RX), an OLED display,
+  three status LEDs, a Qwiic socket, the module-output header and four screw terminals on its front edge. The
+  <b>main board</b> carries the circuitry, and its rear edge carries the power inputs (USB-C 5 V, a 5 V DC jack and an
+  external 7–18 V input) and the coil terminals. The ESP32-S3 development board plugs into two sockets underneath.</p>
+</section>
+
+<section>
+  <h2>The housing</h2>
+  <figure>
+    <img src="images/exploded.png" alt="Exploded view: laser-cut bottom lid, base with the boards, SMA plate, cover and OLED hood">
+    <figcaption>Exploded view, bottom to top: laser-cut lid, base with the boards inside, SMA plate, cover, OLED hood.</figcaption>
+  </figure>
+  <p>Every dimension comes from the KiCad files and the board meshes, none from a ruler, and a clash test checks every
+  point of the three board models against every part. The base is 209 × 112 mm. All fastening is M3 and M2
+  screws into hexagonal nut pockets that open at 45° into the box, so each nut slides in and cannot turn.</p>
+  <div class="scroll"><table class="tbl">
+    <tr><th>Part</th><th>What it does</th><th>Made by</th></tr>
+    <tr><td>Base</td><td>Four 3 mm walls, corner columns, bosses that clamp both boards, openings for every rear connector and the dev board's two USB ports</td><td>3D print</td></tr>
+    <tr><td>Cover</td><td>2 mm plate on the walls, 5 mm over the panel for the chips; windows for the header, the Qwiic and the terminals</td><td>3D print, two colours</td></tr>
+    <tr><td>SMA plate</td><td>Rests on the SMA jacks' bases so 6 mm of thread stands clear for the plug nuts; holes allow 0.5 mm of placement error per jack</td><td>3D print, two colours</td></tr>
+    <tr><td>OLED hood</td><td>Four walls and a 2 mm top over the display, bolted through the module's own M2 holes</td><td>3D print</td></tr>
+    <tr><td>Bottom lid</td><td>Closes the box; a screwdriver hole under every rear terminal screw</td><td>Laser cut, 3 mm acrylic</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>Labels</h2>
+  <div class="two">
+    <figure>
+      <img src="images/top-labels.png" alt="Top view of the cover and SMA plate with white label inlays">
+      <figcaption>Top: white labels inlaid two layers deep, printed in a second colour.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/rear-wall.png" alt="Rear wall with engraved connector names and pole markings">
+      <figcaption>Rear wall: names and pole markings engraved 0.6 mm.</figcaption>
+    </figure>
+  </div>
+  <p>Each name is taken from the boards' silkscreen and checked against the copper: every SMA centre pin, LED, TTL pin
+  and terminal pole is traced to its net on the main board.</p>
+</section>
+
+<section>
+  <h2>Printing</h2>
+  <figure>
+    <img src="images/print-layout.png" alt="The printed parts laid out as on the print plate">
+    <figcaption>The printed parts as they go on the plate of a Bambu Lab P1S with AMS.</figcaption>
+  </figure>
+  <p class="note">Status, 2 October 2026: the housing is designed and exported; nothing is printed yet. The firmware,
+  the phone app and measurements with the instrument will be added to this page.</p>
+</section>
+
+<footer>
+  Shayne Bennetts (instructor) · Basic Skills for Experimentalists, TIGP 2026 ·
+  ESP32-S3 dev-board model by David Scambell via <a href="https://github.com/shkuznetsov/YD-ESP32-S3">shkuznetsov/YD-ESP32-S3</a> (MIT)
+</footer>
+
+</div>
+</body>
+</html>
